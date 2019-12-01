@@ -12,24 +12,18 @@ public class DatabaseConnection {
 	 String username = "root"; 
 	 String passw = "root"; 
 	 
-	 try 
-	 {
-		 try 
-		 	{
+	 
+	 try {
+		 try {
 			 	Class.forName("com.mysql.jdbc.Driver");  
-		 	} 
-		 catch (ClassNotFoundException e)
-		 	{
+		 	} catch (ClassNotFoundException e){
 			 	e.printStackTrace();
 		 	}
-	 
-		 	con = DriverManager.getConnection(url, username, passw); 
-		 	System.out.println("Printing connection object "+con);
+		 	con = DriverManager.getConnection(url, username, passw);
 	 } 
-	 catch (Exception e) 
-	 	{
+	 catch (Exception e) {
 		 	e.printStackTrace();
-	 	}
+		 	}
 	 
 	 return con; 
 	 }

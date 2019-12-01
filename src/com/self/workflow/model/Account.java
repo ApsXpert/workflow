@@ -7,6 +7,7 @@ public class Account {
 	private int accountId;
 	private String companyName;
 	private String primaryAdminEmail;
+	private String password;
 	private Date createTimeStamp;
 	private String companyLogo;
 	private String companyLogoPath;
@@ -29,6 +30,12 @@ public class Account {
 	}
 	public void setPrimaryAdminEmail(String primaryAdminEmail) {
 		this.primaryAdminEmail = primaryAdminEmail;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public Date getCreateTimeStamp() {
 		return createTimeStamp;

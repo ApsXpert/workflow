@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Create Account</title>
+<title>User</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
@@ -32,6 +32,7 @@
 		<header id="header" class="header header-hide">
 		<div class="container">
 
+
 			<div id="logo" class="pull-left">
 				<h1>
 					<a href="#body" class="scrollto"><span>W</span>orkFlow</a>
@@ -54,6 +55,7 @@
 		</div>
 	</header>
 	
+	<h1> Sucessfully inserted data </h1>
 	
 	
 	

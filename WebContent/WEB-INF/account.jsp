@@ -47,7 +47,7 @@
 					<li><a href="#team">Team</a></li>
 					<li><a href="#contact">Contact</a></li>
 					<li><a href="#login">Login</a></li>
-					<li><a href="#contact">Register</a></li>
+					<li><a href="auth/account">Register</a></li>
 				</ul>
 			</nav>
 			<!-- #nav-menu-container -->
@@ -96,12 +96,18 @@
 				<div class="validation"></div>
 				</div>
 				<div class="form-group">
+					<input type="password" class="form-control" name="password" 
+					id="password" placeholder="Password" data-rule="password"
+					data-msg="Please enter a valid password" />
+				<div class="validation"></div>
+				</div>
+				<!-- <div class="form-group">
 					<input type="file" name="CompanyLogo" id="file"/> 
-					<!-- <input type="text" class="form-control" name="subject"
+					<input type="text" class="form-control" name="subject"
 					id="subject" placeholder="Subject" data-rule="minlen:4"
 					data-msg="Please enter at least 8 chars of subject" />
-					<div class="validation"></div> -->
-				</div>
+					<div class="validation"></div>
+				</div> -->
 				<div class="form-group">
 					<input type="text" class="form-control" name="companyLogoPath"
 					id="companyLogoPath" placeholder="Company Logo Path" data-rule="email"
@@ -115,7 +121,8 @@
 				<div class="validation"></div>
 				</div>
 				<div class="text-center">
-					<button type="submit"> Next </button>
+					<button type="submit"> Submit </button>
+					<button type="submit"> Personal Account </button>
 				</div>
 			</form>
 		</div>
