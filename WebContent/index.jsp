@@ -46,7 +46,7 @@
 					<li><a href="#team">Team</a></li>
 					<li><a href="#contact">Contact</a></li>
 					<li><a href="auth/login">Login</a></li>
-					<li><a href="auth/account">Register</a></li>
+					<li><a href="auth/AccountServlet">Register</a></li>
 				</ul>
 			</nav>
 			<!-- #nav-menu-container -->
