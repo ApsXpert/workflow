@@ -13,7 +13,7 @@ import com.self.workflow.service.AccountServiceImpl;
 import com.self.workflow.service.UserServiceImpl;
 
 
-@WebServlet("/auth/AccountServlet")
+@WebServlet("/auth/account")
 public class AccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
