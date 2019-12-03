@@ -13,7 +13,7 @@ import com.self.workflow.service.AccountServiceImpl;
 import com.self.workflow.service.UserServiceImpl;
 
 
-@WebServlet("/auth/AccountServlet")
+@WebServlet("/auth/account")
 public class AccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -22,40 +22,41 @@ public class AccountServlet extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("#####");
-		
-		String companyName = request.getParameter("companyName");
-		String primaryAdminEmail = request.getParameter("primaryAdminEmail");
-		String password = request.getParameter("password");
-		String companyLogoPath = request.getParameter("companyLogoPath");
-		String maximumUser = request.getParameter("maxUser");
-		
-		Account account = new Account();
-		account.setCompanyName(companyName);
-		account.setPrimaryAdminEmail(primaryAdminEmail);
-		account.setPassword(password);
-		account.setCompanyLogoPath(companyLogoPath);
-		account.setMaxUser(maximumUser);
-		
-		AccountServiceImpl accountService = new AccountServiceImpl();
-		String createAccount = accountService.registerAccount(account);
-		
-		UserServiceImpl userService = new UserServiceImpl();
-		userService.account(account);
-	
-		
-		
-		if(createAccount.equals("SUCCESS")) {
-			//System.out.println("SUCCESS");
-			//request.getRequestDispatcher("/api/user").forward(request, response);
-			request.getRequestDispatcher("/WEB-INF/user.jsp").forward(request, response);
-		}else
-		{
-			 request.setAttribute("errMessage", createAccount);
-			 request.getRequestDispatcher("/WEB-INF/account.jsp").forward(request, response);
-			//System.out.println("error");
-		}
-		
+		//System.out.println("#####");
+		try {
+			/*
+			 * String companyName = request.getParameter("companyName"); String
+			 * primaryAdminEmail = request.getParameter("primaryAdminEmail"); String
+			 * password = request.getParameter("password"); String companyLogoPath =
+			 * request.getParameter("companyLogoPath"); String maximumUser =
+			 * request.getParameter("maxUser");
+			 * 
+			 * Account account = new Account(); account.setCompanyName(companyName);
+			 * account.setPrimaryAdminEmail(primaryAdminEmail);
+			 * account.setPassword(password); account.setCompanyLogoPath(companyLogoPath);
+			 * account.setMaxUser(maximumUser);
+			 * 
+			 * AccountServiceImpl accountService = new AccountServiceImpl();
+			 * accountService.registerAccount(account); //String createAccount =
+			 * accountService.registerAccount(account);
+			 * 
+			 * UserServiceImpl userService = new UserServiceImpl();
+			 * userService.account(account);
+			 */			
+			//response.sendRedirect(request.getContextPath()+"/api/user");
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("error a gya jy");
+				response.sendRedirect(request.getContextPath()+"/auth/account");
+			}	
+		/*
+		 * if(createAccount.equals("SUCCESS")) { //System.out.println("SUCCESS");
+		 * request.getRequestDispatcher("/api/user").forward(request, response);
+		 * //request.getRequestDispatcher("/WEB-INF/user.jsp").forward(request,
+		 * response); }else { request.setAttribute("errMessage", createAccount);
+		 * request.getRequestDispatcher("/WEB-INF/account.jsp").forward(request,
+		 * response); //System.out.println("error"); }
+		 */
+		response.sendRedirect(request.getContextPath()+"/auth/account");
 	}
-
 }

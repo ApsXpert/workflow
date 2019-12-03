@@ -54,8 +54,20 @@
 			<!-- #nav-menu-container -->
 		</div>
 	</header>
+	<div class="hero-container">
+			
+		<img src="/workflow/assets/images/hero-img.png" alt="Hero Imgs" style="float:left;padding-top:10%;">
+	</div>
+		
+		<!--========================= User form ==========================-->
+	<section id="contact" class="padd-section wow fadeInUp" style="padding-left: 30%;float:top;" >
+		<div class="container">
+			<div class="section-title text-center">
+				<h2><b>Welcome User</b></h2>
+		</div>
+		</div>
 	
-	<h1> Sucessfully inserted data </h1>
+	</section>	
 	
 	
 	

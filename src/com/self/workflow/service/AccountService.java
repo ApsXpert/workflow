@@ -4,5 +4,5 @@ import com.self.workflow.model.Account;
 
 public interface AccountService {
 	
-	public String registerAccount(Account account);
+	public void registerAccount(Account account);
 }

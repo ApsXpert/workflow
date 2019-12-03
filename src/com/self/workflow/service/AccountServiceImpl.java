@@ -5,7 +5,6 @@ import com.self.workflow.model.Account;
 
 public class AccountServiceImpl implements AccountService {
 	
-	
 	AccountDaoImpl accountDao = new AccountDaoImpl();
 	
 	public String registerAccount(Account account) {
@@ -17,6 +16,5 @@ public class AccountServiceImpl implements AccountService {
 		userService.createUser(accountId, account.getEmail(), account.getPassword);
 		return accountId;
 		*************
-		
 	}
 }

@@ -82,7 +82,7 @@
 		<div class="form">
 			<div id="sendmessage">Account Created </div>
 			<div id="errormessage"></div>
-				<form action="AccountServlet" method="post" role="form" class="contactForm">
+				<form action="/workflow/auth/account" method="post" role="form" class="contactForm">
 				<div class="form-group">
 					<input type="text" name="companyName" class="form-control" id="companyName"
 					placeholder="Company Name" data-rule="minlen:4"
