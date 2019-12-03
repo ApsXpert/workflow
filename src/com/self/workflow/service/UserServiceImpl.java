@@ -11,6 +11,14 @@ public class UserServiceImpl implements UserService {
 	
 	
 	@Override
+	***** Change method name to createUser
+	public void createUser(int accountId, String email, String password) {
+	 int userId = userDao.createUser(accountId);
+	 userLoginService.createUserLogin(userId, email, password);
+	
+	}
+	
+	***********
 	public void account(Account account) {
 		userDao.createUser(account);
 		

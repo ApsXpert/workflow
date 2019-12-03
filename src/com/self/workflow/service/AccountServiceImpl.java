@@ -11,6 +11,12 @@ public class AccountServiceImpl implements AccountService {
 	public String registerAccount(Account account) {
 		return accountDao.createAccount(account);
 		
+		************
+		int accountId = accountDao.createAccount(account);
+		then
+		userService.createUser(accountId, account.getEmail(), account.getPassword);
+		return accountId;
+		*************
 		
 	}
 }
