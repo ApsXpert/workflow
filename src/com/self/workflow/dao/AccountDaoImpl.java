@@ -2,14 +2,16 @@ package com.self.workflow.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import com.self.workflow.connection.DatabaseConnection;
 import com.self.workflow.model.Account;
 
 public class AccountDaoImpl implements AccountDao {
 
+	public int accountId;
 	@Override
-	public String createAccount(Account account) {
+	public void createAccount(Account account) {
 		
 		String companyName = account.getCompanyName();
 		String primaryAdminEmail = account.getPrimaryAdminEmail();
@@ -32,18 +34,25 @@ public class AccountDaoImpl implements AccountDao {
 			preparedStatement.setString(3, password);
 			preparedStatement.setString(4, companyLogoPath);
 			preparedStatement.setString(5, maxUser);
+			preparedStatement.executeUpdate();
+			//int i= preparedStatement.executeUpdate();
 			
-			int i= preparedStatement.executeUpdate();
+			/*
+			 * String query1 = "SELECT accountId FROM account WHERE primaryAdminEmail=?";
+			 * preparedStatement = con.prepareStatement(query1);
+			 * preparedStatement.setString(1, primaryAdminEmail); ResultSet rs =
+			 * preparedStatement.executeQuery();
+			 * 
+			 * if(rs.next()) { int accountId = rs.getInt(1); }
+			 */
 			
-			if (i!=0)  //Just to ensure data has been inserted into the database
-				 return "SUCCESS";
-			
-			
+			/*
+			 * if (i!=0) return "SUCCESS";
+			 */
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		
-		return "Not register";
+		//return "Not register";
 	}
 
 }
