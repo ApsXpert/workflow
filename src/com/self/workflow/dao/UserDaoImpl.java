@@ -9,47 +9,37 @@ import com.self.workflow.model.Account;
 import com.self.workflow.model.User;
 
 public class UserDaoImpl implements UserDao {
-
-	public int accountId;
-	public int userId;
 	
-	@Override
-	public void createUser(Account account) {
-		String primaryAdminEmail = account.getPrimaryAdminEmail();
+	 int userId;
+	
+	public int createUser(int id) {
 		Connection con = null;
-		PreparedStatement preparedStatementQuery1 = null;
-		PreparedStatement psQuery2 = null;
-		PreparedStatement psQuery3 = null;
+		PreparedStatement preparedStatement = null;
 		try {
 			con = DatabaseConnection.createConnection();
-			String query1 = "SELECT accountId FROM account WHERE primaryAdminEmail=?";
-			preparedStatementQuery1 = con.prepareStatement(query1);
-			preparedStatementQuery1.setString(1, primaryAdminEmail);
-			ResultSet rs = preparedStatementQuery1.executeQuery();
+			String query = "INSERT INTO user(accountId) VALUES(?)";			 
+			preparedStatement = con.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
+			//preparedStatement.setInt(1, AccountDaoImpl.id);
+			preparedStatement.setInt(1, id);
+			preparedStatement.executeUpdate();
+			
+			ResultSet rs = preparedStatement.getGeneratedKeys();
 			if(rs.next()) {
-				accountId = rs.getInt(1);
-			}
-			String query2 = "INSERT INTO user(accountId) VALUES(?)";
-			psQuery2 = con.prepareStatement(query2);
-			psQuery2.setInt(1, accountId);
-			psQuery2.executeUpdate();
-			
-			ResultSet resultS = psQuery2.getGeneratedKeys();
-			if(resultS.next()) {
 				userId = rs.getInt(1);
+				System.out.println("your user id : " + userId);
+				//user.setUserId(userId);
+				//return user;
 			}
-			
-			String query3 = "INSERT INTO adminaccount(accountId, userId) VALUES (?,?)";
-			psQuery3 = con.prepareStatement(query3);
-			psQuery3.setInt(1, accountId);
-			psQuery3.setInt(2, userId);
-			psQuery3.executeUpdate();
-			
+			rs.close();
+			con.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return userId; // return 1 times only
 		
 	}
+
+	
 	
 	
 	

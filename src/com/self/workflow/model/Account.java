@@ -13,6 +13,17 @@ public class Account {
 	private String companyLogoPath;
 	private String maxUser;
 	
+	public Account() {}
+	
+	public Account(String companyName, String primaryAdminEmail, 
+			String password, String companyLogoPath, String maximumUser) {
+		this.companyName = companyName;
+		this.primaryAdminEmail = primaryAdminEmail;
+		this.password = password;
+		this.companyLogoPath = companyLogoPath;
+		this.maxUser = maximumUser;
+	}
+	
 	public int getAccountId() {
 		return accountId;
 	}

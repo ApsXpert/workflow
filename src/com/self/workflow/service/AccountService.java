@@ -4,5 +4,6 @@ import com.self.workflow.model.Account;
 
 public interface AccountService {
 	
-	public void registerAccount(Account account);
+	public int createAccount(Account account);
+	//public int createAdminAccount(int accountId, int userId);
 }

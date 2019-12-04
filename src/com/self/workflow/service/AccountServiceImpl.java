@@ -1,20 +1,24 @@
 package com.self.workflow.service;
 
+import com.self.workflow.dao.AccountDao;
 import com.self.workflow.dao.AccountDaoImpl;
 import com.self.workflow.model.Account;
+import com.self.workflow.model.User;
 
 public class AccountServiceImpl implements AccountService {
 	
-	AccountDaoImpl accountDao = new AccountDaoImpl();
+	AccountDao accountDao = new AccountDaoImpl();
+	UserService userService = new UserServiceImpl();
 	
-	public String registerAccount(Account account) {
-		return accountDao.createAccount(account);
+	public int createAccount(Account account) {
 		
-		************
 		int accountId = accountDao.createAccount(account);
-		then
-		userService.createUser(accountId, account.getEmail(), account.getPassword);
+		int userId = userService.createUser(accountId);
+		int adminAccountId = accountDao.createAdminAccount(accountId, userId);
+		System.out.println("Here is Admin Account Id in service method : " + adminAccountId);
 		return accountId;
-		*************
+		
+		//User userReg = userService.createUser(user);
+		
 	}
 }
