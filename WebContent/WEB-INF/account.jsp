@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -26,6 +25,24 @@
 
 <!-- Main Stylesheet File -->
 <link href="/workflow/assets/index/style.css" rel="stylesheet">
+
+
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#submitbtnid').attr("disabled", true);
+	$( "#password_again" ).keyup(function() {
+		var pass = $("#password").val();
+		var c_pass = $("#password_again").val();
+		   
+		if(pass==c_pass){
+			$('#submitbtnid').prop('disabled', false);
+		} else {
+			$('#submitbtnid').prop('disabled', true);
+		} 
+	});
+});
+</script>
 </head>
 <body>
 	
@@ -82,55 +99,59 @@
 		<div class="form">
 			<div id="sendmessage">Account Created </div>
 			<div id="errormessage"></div>
-				<form action="/workflow/auth/account" method="post" role="form" class="contactForm">
+				<form action="/workflow/auth/account" method="post" id="myform"
+				role="form" class="contactForm">
 				<div class="form-group">
 					<input type="text" name="companyName" class="form-control" id="companyName"
 					placeholder="Company Name" data-rule="minlen:4"
-					data-msg="Please enter at least 4 chars" />
+					data-msg="Please enter at least 4 chars" required/>
 				<div class="validation"></div>
 				</div>
 				<div class="form-group">
 					<input type="email" class="form-control" name="primaryAdminEmail" 
 					id="primaryAdminEmail" placeholder="Primary Admin Email" data-rule="email"
-					data-msg="Please enter a valid email" />
+					data-msg="Please enter a valid email" required/>
 				<div class="validation"></div>
 				</div>
 				<div class="form-group">
 					<input type="password" class="form-control" name="password" 
 					id="password" placeholder="Password" data-rule="password"
-					data-msg="Please enter a valid password" />
+					data-msg="Please enter a valid password" required/>
 				<div class="validation"></div>
 				</div>
-				<!-- <div class="form-group">
-					<input type="file" name="CompanyLogo" id="file"/> 
-					<input type="text" class="form-control" name="subject"
-					id="subject" placeholder="Subject" data-rule="minlen:4"
-					data-msg="Please enter at least 8 chars of subject" />
-					<div class="validation"></div>
-				</div> -->
+				<div class="form-group">
+					<input type="password" class="form-control" name="re-password" 
+					id="password_again" placeholder="Retype Password " data-rule="re-password"
+					data-msg="Please enter a valid password" required/>
+				<div class="validation"></div>
+				</div>
 				<div class="form-group">
 					<input type="text" class="form-control" name="companyLogoPath"
 					id="companyLogoPath" placeholder="Company Logo Path" data-rule="email"
-					data-msg="Please enter a valid email" />
+					data-msg="Please enter a valid email" required/>
 				<div class="validation"></div>
 				</div>
 				<div class="form-group">
 					<input type="number" class="form-control" name="maxUser"
 					id="maxUser" min="1" placeholder="Maximum User" data-rule="email"
-					data-msg="Please enter a valid number" />
+					data-msg="Please enter a valid number" required/>
 				<div class="validation"></div>
 				</div>
 				<div class="text-center">
-					<button type="submit"> Submit </button>
-					<button type="submit"> Personal Account </button>
+					<input type="submit" id="submitbtnid" value="Submit" style="background-color:#71c55d;color:white;"/> 
+<!-- 					<input type="submit" value="Personal Account"/>  -->
 				</div>
 			</form>
 		</div>
 	</div>
 </div>
 </div>
-	
-	<!-- Create Account Form -->
 
+
+<!-- <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script> -->
+
+	<!-- Create Account Form -->
 </body>
 </html>

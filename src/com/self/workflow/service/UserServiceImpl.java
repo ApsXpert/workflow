@@ -14,10 +14,14 @@ public class UserServiceImpl implements UserService {
 	public int createUser(int id) {
 		int userId = userDao.createUser(id);
 		//return userId;
-		return userId;
-		
-		
-		
+		return userId;	
+	}
+
+
+	@Override
+	public int userLogin(int id) {
+		//int userLoginId 
+		return 0;
 	}
 
 }

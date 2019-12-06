@@ -6,7 +6,7 @@ import com.self.workflow.model.User;
 public interface UserDao {
 	
 	public int createUser(int id);
-
+	
 	
 	
 }

@@ -7,4 +7,5 @@ public interface UserService {
 	
 	//public void createUser(Account account);
 	public int createUser(int id);
+	public int userLogin(int id);
 }

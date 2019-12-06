@@ -16,9 +16,8 @@ public class AccountServiceImpl implements AccountService {
 		int userId = userService.createUser(accountId);
 		int adminAccountId = accountDao.createAdminAccount(accountId, userId);
 		System.out.println("Here is Admin Account Id in service method : " + adminAccountId);
+		/* int userLoginId = */ 
 		return accountId;
-		
 		//User userReg = userService.createUser(user);
-		
 	}
 }
