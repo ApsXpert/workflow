@@ -63,7 +63,7 @@ $(document).ready(function(){
 					<li><a href="#about-us">About</a></li>
 					<li><a href="#team">Team</a></li>
 					<li><a href="#contact">Contact</a></li>
-					<li><a href="#login">Login</a></li>
+					<li><a href="api/user">Login</a></li>
 					<li><a href="auth/account">Register</a></li>
 				</ul>
 			</nav>
@@ -138,7 +138,8 @@ $(document).ready(function(){
 				<div class="validation"></div>
 				</div>
 				<div class="text-center">
-					<input type="submit" id="submitbtnid" value="Submit" style="background-color:#71c55d;color:white;"/> 
+					<input type="submit" class="btn btn-success" id="submitbtnid" value="Submit"/> 
+					
 <!-- 					<input type="submit" value="Personal Account"/>  -->
 				</div>
 			</form>

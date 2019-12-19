@@ -9,6 +9,12 @@ public class UserLogin {
 	private Date lastLoginTime;
 	private Date lastLogoutTime;
 	
+	public UserLogin() {	}
+	
+	public UserLogin(String email, String password) {
+		this.email = email;
+		this.password = password; 
+	}
 	
 	public String getEmail() {
 		return email;

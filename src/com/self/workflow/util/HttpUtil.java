@@ -3,6 +3,7 @@ package com.self.workflow.util;
 import javax.servlet.http.HttpServletRequest;
 
 import com.self.workflow.model.Account;
+import com.self.workflow.model.UserLogin;
 
 public class HttpUtil {
 
@@ -16,4 +17,12 @@ public class HttpUtil {
 				companyLogoPath, maximumUser);
 		return account;
 		}
+	
+	public static UserLogin registerUser(HttpServletRequest request) {
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		
+		UserLogin user = new UserLogin(email,password);
+		return user;
+	}
 }

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>User</title>
+<title>Login</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
@@ -26,6 +26,23 @@
 
 <!-- Main Stylesheet File -->
 <link href="/workflow/assets/index/style.css" rel="stylesheet">
+
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('input[type="submit"]').attr('disabled', true)
+	$('input[type="email"], input[type="password"]').on('keyup',function() {
+		var email = $("#email").val();
+		var password = $("#password").val();
+		
+		if( email != "" && password != ""){
+			$('input[type="submit"]').attr('disabled', false);
+		} else {
+			$('input[type="submit"]').attr('disabled', true);
+		}
+	})
+});
+</script>
 </head>
 <body>
 	
@@ -47,8 +64,8 @@
 					<li><a href="#about-us">About</a></li>
 					<li><a href="#team">Team</a></li>
 					<li><a href="#contact">Contact</a></li>
-					<li><a href="#login">Login</a></li>
-					<li><a href="#contact">Register</a></li>
+					<li><a href="api/user">Login</a></li>
+					<li><a href="auth/account">Register</a></li>
 				</ul>
 			</nav>
 			<!-- #nav-menu-container -->
@@ -60,14 +77,67 @@
 	</div>
 		
 		<!--========================= User form ==========================-->
-	<section id="contact" class="padd-section wow fadeInUp" style="padding-left: 30%;float:top;" >
+	<!-- <section id="contact" class="padd-section wow fadeInUp" style="padding-left: 30%;float:top;" >
 		<div class="container">
 			<div class="section-title text-center">
-				<h2><b>Welcome User</b></h2>
+				<h2><b>Login</b></h2>
 		</div>
 		</div>
+	</section>	 -->
 	
-	</section>	
+	
+			<section id="contact" class="padd-section wow fadeInUp" style="padding-left: 30%;float:top;" >
+
+		<div class="container">
+			<div class="section-title text-center">
+				<h2><b>Login</b></h2>
+		
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row justify-content-center">
+
+			<!-- 	<div class="col-lg-3 col-md-4">
+					
+				</div>
+-->
+	<div class="col-lg-5 col-md-8">
+		<div class="form">
+			
+			<div id="errormessage"></div>
+				<form action="user" method="post" id="myform"
+				role="form" class="contactForm">
+				
+				<div class="form-group">
+					<input type="email" class="form-control" name="email" 
+					id="email" placeholder="Email" data-rule="email"
+					data-msg="Please enter a valid email" required/>
+				<div class="validation"></div>
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control" name="password" 
+					id="password" placeholder="Password" data-rule="password"
+					data-msg="Please enter a valid password" required/>
+				<div class="validation"></div>
+				</div>
+				<div class="text-center">
+ 					<input type="submit" id="submitbtnid" class="btn btn-success" value="Login"/>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</div>
+
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

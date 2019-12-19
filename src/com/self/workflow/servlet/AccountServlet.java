@@ -29,7 +29,6 @@ public class AccountServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		try {
-			
 			Account account = HttpUtil.constructAccount(request);
 			AccountService accountService = new AccountServiceImpl();
 			  
@@ -52,18 +51,7 @@ public class AccountServlet extends HttpServlet {
 			 response.sendRedirect(request.getContextPath()+"/api/user");
 		} catch (Exception e) {
 			response.sendRedirect(request.getContextPath() + "/auth/account");
-			e.printStackTrace();
-			System.out.println("error a gya jy");
-			
+			e.printStackTrace();			
 		}
-		/*
-		 * if(createAccount.equals("SUCCESS")) { //System.out.println("SUCCESS");
-		 * request.getRequestDispatcher("/api/user").forward(request, response);
-		 * //request.getRequestDispatcher("/WEB-INF/user.jsp").forward(request,
-		 * response); }else { request.setAttribute("errMessage", createAccount);
-		 * request.getRequestDispatcher("/WEB-INF/account.jsp").forward(request,
-		 * response); //System.out.println("error"); }
-		 */
-		//response.sendRedirect(request.getContextPath() + "/auth/account");
 	}
 }

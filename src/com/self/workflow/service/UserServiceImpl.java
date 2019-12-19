@@ -4,6 +4,7 @@ import com.self.workflow.dao.UserDao;
 import com.self.workflow.dao.UserDaoImpl;
 import com.self.workflow.model.Account;
 import com.self.workflow.model.User;
+import com.self.workflow.model.UserLogin;
 
 
 public class UserServiceImpl implements UserService {
@@ -17,11 +18,9 @@ public class UserServiceImpl implements UserService {
 		return userId;	
 	}
 
-
-	@Override
-	public int userLogin(int id) {
-		//int userLoginId 
-		return 0;
+	public int registerUser(UserLogin user) {
+		int userId = userDao.registerUser(user); 
+		return userId;
 	}
 
 }
